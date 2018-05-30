@@ -24,6 +24,11 @@ class TodoDB():
 
     def test(self):
         pass
+
+    def delete(self, todo_id):
+        print('delete', todo_id)
+
+
 if __name__ =='__main__':
     db = TodoDB()
     db.init_db()
