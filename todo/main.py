@@ -10,10 +10,7 @@ def index():
     db = TodoDB()
     todo = db.read_all()
 
-    return  render_template('index.html',data = todo)
-
-
-
+    return  render_template('index.html', data = todo)
 
 
 

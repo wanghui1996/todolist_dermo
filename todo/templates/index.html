@@ -6,22 +6,22 @@
 </head>
 <body>
      这是一个html主页
-<!--<ul>-->
-
-    <!--<li这是一个测试>-->
-
-
-
-
-<!--</ul>-->
      <ul>
 
-{% for value in data %}
-     <li>{{ value}}</li>
-{% endfor %}
-
-
+    {% for value in data %}
+         <li>{{ value[1] }} <button onclick="myFunction({{value[0] }})"> 删除 </button></li>
+    {% endfor %}
 
      </ul>
+
+     <script>
+
+         function myFunction(index){
+            console.log("hello word", index)
+
+         }
+
+     </script>
+
 </body>
 </html>
