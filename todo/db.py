@@ -24,6 +24,14 @@ class TodoDB():
         # data = [d[0] for d in data]
         return data
 
+    def read(self, todo_id):
+        cursor = self.cursor()
+        cursor = cursor.execute('select id, content from todo where id=?', (todo_id,))
+        data = cursor.fetchone()
+        cursor.close()
+        return  data
+
+
     def init_db(self):
 
         conn = sqlite3.connect('test.db')
@@ -43,10 +51,7 @@ class TodoDB():
         cursor.close()
         self.commit()
         return
-
-
-
-        # print('delete', todo_id)
+        print('delete', todo_id)
 
 
 if __name__ =='__main__':

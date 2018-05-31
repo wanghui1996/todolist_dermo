@@ -5,16 +5,18 @@
     <title>代办事项</title>
 </head>
 <body>
-     这是一个html主页
-     <ul>
+这是一个html主页
+<ul>
 
     {% for value in data %}
-         <li>{{ value[1] }} <button onclick="myFunction({{value[0] }})"> 删除 </button></li>
+    <li>{{ value[1] }}
+        <button onclick="myFunction({{value[0] }})"> 删除</button>
+    </li>
     {% endfor %}
 
-     </ul>
+</ul>
 
-     <script>
+<script>
 
          function myFunction(index){
             console.log("deleting:", index)
@@ -32,10 +34,11 @@
                     window.location.reload();
                     }
 
-                    )
+               )
          }
 
-     </script>
+
+</script>
 
 </body>
 </html>
