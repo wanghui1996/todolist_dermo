@@ -2,6 +2,18 @@ import sqlite3
 
 
 class TodoDB():
+    def  __init__(self):
+        self.conn = sqlite3.connect('test.db')
+    def cursor(self):
+        return self.conn.cursor()
+    def close(self):
+        self.conn.close()
+    def commit(self):
+        self.conn.commit()
+
+
+
+
     def read_all(self):
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
@@ -26,7 +38,15 @@ class TodoDB():
         pass
 
     def delete(self, todo_id):
-        print('delete', todo_id)
+        cursor = self.cursor()
+        cursor = cursor.execute('delete from todo where id=?', (todo_id, ))
+        cursor.close()
+        self.commit()
+        return
+
+
+
+        # print('delete', todo_id)
 
 
 if __name__ =='__main__':
