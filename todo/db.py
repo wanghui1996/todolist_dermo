@@ -17,7 +17,7 @@ class TodoDB():
     def read_all(self):
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
-        cursor.execute('select id, content from todo')
+        cursor.execute('select id, content from todo order by id desc')
         data = cursor.fetchall()
         cursor.close()
         conn.close()
@@ -52,6 +52,13 @@ class TodoDB():
         self.commit()
         return
         print('delete', todo_id)
+
+    def create(self, text):
+        cursor = self.cursor()
+        cursor = cursor.execute('insert into todo(content) values (?)', (text, ))
+        cursor.close()
+        self.commit()
+
 
 
 if __name__ =='__main__':
